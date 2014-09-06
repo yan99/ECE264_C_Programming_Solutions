@@ -1,0 +1,23 @@
+Breakpoint 1 at 0x400923: file answer01.c, line 6.
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA01/pa01 
+
+Breakpoint 1, arraySum (array=0x7fffffffe3d0, len=8) at answer01.c:6
+warning: Source file is more recent than executable.
+6	  int sum=0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6_5.3.x86_64
+1	#include <stdlib.h>
+2	#include "answer01.h"
+3	
+4	int arraySum(int * array, int len)
+5	{
+6	  int sum=0;
+7	  int i;
+8	
+9	  for(i=0; i<len; i++)
+10	  {
+9	  for(i=0; i<len; i++)
+11	    sum+=array[i];
+9	  for(i=0; i<len; i++)
+11	    sum+=array[i];
+$1 = -4
+Undefined command: "exit".  Try "help".
