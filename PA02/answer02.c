@@ -1,16 +1,23 @@
 #include <stdio.h>
 #include "answer02.h"
-
-char main()
+/*
+void main()
 {
   const char * s = "Hello World";
-//  printf("%d\n", my_strlen(s));
-  char h ='\0';
+  printf("%d\n", my_strlen(s));
+  char h ='o';
+  char buffer[50];
+  char ch ='5';
   printf("%d\n", my_countchar(s, h));
   printf("'%s'\n", my_strchr(s, h));
   printf("'%s'\n", my_strrchr(s, h));
+  printf("'%s'\n", my_strstr(s, "World"));
+  printf("'%s'\n", my_strcpy(buffer, "Hello "));
+  printf("'%d'\n", my_isspace(ch));
+  printf("%s\n", my_strcat(buffer, "Zippy!"));
+  printf("%d\n", my_atoi("0"));
 }
-
+*/
 size_t my_strlen(const char * str)
 {
   int len = 0;
@@ -38,57 +45,129 @@ int my_countchar(const char * str, char ch)
 
 char * my_strchr(const char * str, int ch)
 {
-  char * s;
   int i = 0;
-  int len = 0;
-  int count = my_countchar(str, ch);
-  if(count != 0)
+  char * s = NULL;
+  while(str[i] != '\0')
   {
-    while(str[len] != ch)
+    if(str[i] == ch)
     {
-      len++;
+      s = (char *)&str[i];
+      return s;
     }
-    while(str[len] != '\0')
-    {
-      s[i] = str[len];
-      i++;
-      len++;
-    }
-  }
-  else
-  {
-    s = "NULL";
+    i++;
   }
   return s;
 }
 
 char * my_strrchr(const char * str, int ch)
 {
-  char * s;
-  int i = 0;
   int len = my_strlen(str);
-  int count = my_countchar(str, ch);
-  if(count != 0)
+  char * s = NULL;
+  while(len >= 0)
   {
-    while(str[len] != ch)
+    if(str[len] == ch)
     {
-      len--;
+      s = (char *)&str[len];
+      return s;
     }
-    while(str[len] != '\0')
+    len--;
+  }
+  return s;
+}
+
+char * my_strstr(const char * haystack, const char * needle)
+{
+  int i = 0;
+  int j = 0;
+  int k = 0;
+  char * s;
+  if(needle[0] == ' ')
+  {
+    s = (char *)&haystack[0];
+    return s;
+  }
+  else
+  {
+    while(s[0] != '\0')
     {
-      s[i] = str[len];
-      i++;
-      len++;
+      s = (char *)&haystack[k];
+      i = 0;
+      j = 0;
+      while(s[i] == needle[j])
+      {
+        i++;
+        j++;
+      }
+      if(needle[j] == '\0')
+      {
+        return s;
+      }
+      k++;
+    }
+  return NULL;
+  }
+}
+
+char *my_strcpy(char * dest, const char * src)
+{
+  int i = 0;
+  while(src[i] != '\0')
+  {
+    dest[i] = src[i];
+    i++;
+  }
+  return dest;
+}
+
+char * my_strcat(char * dest, const char * src)
+{
+  int len_dest = my_strlen((const char *)dest);
+  int i = 0;
+  while(src[i] != '\0')
+  {
+    dest[len_dest + i] = src[i];
+    i++;
+  }
+  return dest;
+}
+
+int my_isspace(int ch)
+{
+  return (ch == ' ' || ch == '\f' || ch == '\n' || ch == '\r' || ch == '\t' || ch =='\v' );
+}
+
+int my_atoi(const char * str)
+{
+  int j = 0;
+  int ret = 0;
+  while(str[0] == ' ' || str[0] == '\n' || str[0] == '\f' || str[0] == '\t' || str[0] == '\v' || str[0] == '\r')
+  {
+    str++;
+  }
+  if(str[0] == '-')
+  {
+    str++;
+    j++;
+  }
+  if(str[ret] <= '9' & str[ret] >= '0')
+  {
+    while(str[0] >= '0' & str[0] <= '9')
+    {
+      ret = 10 * ret;
+      ret += str[0] - '0';
+      str++;
+    }
+    if(j == 1)
+    {
+      return -ret;
+    }
+    else
+    {
+      return ret;
     }
   }
   else
   {
-    s = "NULL";
+    return 0;
   }
-  return s;
 }
-/*
-char * my_strstr(const char * haystack, const char * needle)
-{
-}
-*/
