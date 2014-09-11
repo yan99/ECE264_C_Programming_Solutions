@@ -1,0 +1,11 @@
+Breakpoint 1 at 0x400526: file pa02.c, line 24.
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA02/pa02 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe498) at pa02.c:26
+26	    const char * s1 = "Hello World!";
+$1 = 1
+27	    const char * s2 = "";
+28	    const char * s3 = "foo";
+Continuing.
+
+Program exited normally.

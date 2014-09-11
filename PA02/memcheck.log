@@ -1,0 +1,67 @@
+==9583== Memcheck, a memory error detector
+==9583== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==9583== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==9583== Command: ./pa02
+==9583== Parent PID: 500
+==9583== 
+--9583-- 
+--9583-- Valgrind options:
+--9583--    --tool=memcheck
+--9583--    --leak-check=full
+--9583--    --verbose
+--9583--    --log-file=memcheck.log
+--9583-- Contents of /proc/version:
+--9583--   Linux version 2.6.32-431.23.3.el6.x86_64 (mockbuild@x86-027.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Wed Jul 16 06:12:23 EDT 2014
+--9583-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--9583-- Page sizes: currently 4096, max supported 4096
+--9583-- Valgrind library directory: /usr/lib64/valgrind
+--9583-- Reading syms from /home/shay/a/yan99/ECE264/solutions/264solution/PA02/pa02
+--9583-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--9583--    object doesn't have a dynamic symbol table
+--9583-- Reading syms from /lib64/ld-2.12.so
+--9583--   Considering /usr/lib/debug/.build-id/57/bf668f99b7f5917b8d55fbb645173c9a644575.debug ..
+--9583--   .. build-id is valid
+--9583-- Scheduler: using generic scheduler lock implementation.
+--9583-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==9583== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-9583-by-yan99-on-ecegrid-thin2.ecn.purdue.edu
+==9583== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-9583-by-yan99-on-ecegrid-thin2.ecn.purdue.edu
+==9583== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-9583-by-yan99-on-ecegrid-thin2.ecn.purdue.edu
+==9583== 
+==9583== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==9583== don't want to do, unless you know exactly what you're doing,
+==9583== or are doing some strange experiment):
+==9583==   /usr/lib64/valgrind/../../bin/vgdb --pid=9583 ...command...
+==9583== 
+==9583== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==9583==   /path/to/gdb ./pa02
+==9583== and then give GDB the following command
+==9583==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=9583
+==9583== --pid is optional if only one valgrind process is running
+==9583== 
+--9583-- REDIR: 0x312f017530 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--9583-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--9583-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--9583-- REDIR: 0x312f0173a0 (index) redirected to 0x4a07bf0 (index)
+--9583-- REDIR: 0x312f017420 (strcmp) redirected to 0x4a08530 (strcmp)
+--9583-- Reading syms from /lib64/libc-2.12.so
+--9583--   Considering /usr/lib/debug/.build-id/07/b5ce35eba864a01b697f5ca117e94b9248064f.debug ..
+--9583--   .. build-id is valid
+--9583-- REDIR: 0x312f484cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--9583-- REDIR: 0x312f486f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--9583-- REDIR: 0x312f482c40 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--9583-- REDIR: 0x312f481160 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+--9583-- REDIR: 0x312f48aaf0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+--9583-- REDIR: 0x312f47b520 (free) redirected to 0x4a06369 (free)
+==9583== 
+==9583== HEAP SUMMARY:
+==9583==     in use at exit: 0 bytes in 0 blocks
+==9583==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==9583== 
+==9583== All heap blocks were freed -- no leaks are possible
+==9583== 
+==9583== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--9583-- 
+--9583-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--9583-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==9583== 
+==9583== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

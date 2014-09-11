@@ -47,7 +47,8 @@ char * my_strchr(const char * str, int ch)
 {
   int i = 0;
   char * s = NULL;
-  while(str[i] != '\0')
+  int len = my_strlen(str);
+  while(i <= len + 1)
   {
     if(str[i] == ch)
     {
@@ -80,32 +81,27 @@ char * my_strstr(const char * haystack, const char * needle)
   int i = 0;
   int j = 0;
   int k = 0;
-  char * s;
-  if(needle[0] == ' ')
+  if(needle[0] == '\0')
   {
-    s = (char *)&haystack[0];
-    return s;
+    return (char *)&haystack[0];
   }
-  else
+  while(haystack[k] != '\0')
   {
-    while(s[0] != '\0')
+    i = k;
+    j = 0;
+    while(haystack[i] == needle[j] && haystack[i] != '\0')
     {
-      s = (char *)&haystack[k];
-      i = 0;
-      j = 0;
-      while(s[i] == needle[j])
-      {
-        i++;
-        j++;
-      }
-      if(needle[j] == '\0')
-      {
-        return s;
-      }
-      k++;
+      i++;
+      j++;
     }
-  return NULL;
+    if(needle[j] == '\0')
+    {
+      return (char *)&haystack[k];
+    }
+    k++;
   }
+  return NULL;
+  
 }
 
 char *my_strcpy(char * dest, const char * src)
@@ -116,6 +112,7 @@ char *my_strcpy(char * dest, const char * src)
     dest[i] = src[i];
     i++;
   }
+  dest[i] = '\0';
   return dest;
 }
 
@@ -128,6 +125,7 @@ char * my_strcat(char * dest, const char * src)
     dest[len_dest + i] = src[i];
     i++;
   }
+  dest[i + len_dest] = '\0';
   return dest;
 }
 
@@ -149,9 +147,9 @@ int my_atoi(const char * str)
     str++;
     j++;
   }
-  if(str[ret] <= '9' & str[ret] >= '0')
+  if(str[ret] <= '9' && str[ret] >= '0')
   {
-    while(str[0] >= '0' & str[0] <= '9')
+    while(str[0] >= '0' && str[0] <= '9')
     {
       ret = 10 * ret;
       ret += str[0] - '0';
