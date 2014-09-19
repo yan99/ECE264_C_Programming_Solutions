@@ -1,0 +1,139 @@
+Breakpoint 1 at 0x400880: file answer03.c, line 34.
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA03/pa03 
+
+Breakpoint 1, explode (str=0x400c58 "what\nis your name!", 
+    delims=0x602050 " \n\t\f\v", arrLen=0x7fffffffe400) at answer03.c:34
+34	  int N = 0;
+35	  int ind = 0;
+36	  int last = 0;
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+Undefined command: "nn".  Try "help".
+41		  N++;
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+41		  N++;
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+41		  N++;
+37	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+37	  for(ind = 0; ind <= strlen(str); ind++)
+39	      if(strchr(delims, str[ind]) != NULL)
+41		  N++;
+37	  for(ind = 0; ind <= strlen(str); ind++)
+44	  * arrLen = N; 
+45	  N = 0;
+46	  char * * strArr = malloc((* arrLen) * sizeof(char *));
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+51	      char * mcpy = malloc((ind - last + 1) * sizeof(char));
+52	      memcpy(mcpy, str + last, ind - last);
+53	      mcpy[ind - last] = '\0';
+54	      strArr[N++] = mcpy;
+55	      free(mcpy);
+56	      last = ind + 1;
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+51	      char * mcpy = malloc((ind - last + 1) * sizeof(char));
+52	      memcpy(mcpy, str + last, ind - last);
+53	      mcpy[ind - last] = '\0';
+54	      strArr[N++] = mcpy;
+55	      free(mcpy);
+56	      last = ind + 1;
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+Undefined command: "nn".  Try "help".
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+51	      char * mcpy = malloc((ind - last + 1) * sizeof(char));
+52	      memcpy(mcpy, str + last, ind - last);
+53	      mcpy[ind - last] = '\0';
+54	      strArr[N++] = mcpy;
+55	      free(mcpy);
+56	      last = ind + 1;
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+47	  for(ind = 0; ind <= strlen(str); ind++)
+49	    if(strchr(delims, str[ind]) != NULL)
+51	      char * mcpy = malloc((ind - last + 1) * sizeof(char));
+52	      memcpy(mcpy, str + last, ind - last);
+53	      mcpy[ind - last] = '\0';
+54	      strArr[N++] = mcpy;
+55	      free(mcpy);
+56	      last = ind + 1;
+47	  for(ind = 0; ind <= strlen(str); ind++)
+59	  char * mcpy = malloc((ind - last + 1) * sizeof(char));
+60	  memcpy(mcpy, str + last, ind - last);
+61	  mcpy[ind - last] = '\0';
+62	  strArr[N] = mcpy;
+63	  free(mcpy);
+64	  return strArr;
+65	}
+main (argc=1, argv=0x7fffffffe518) at test.c:22
+22	   for(i=0;i<number;i++)
+24	       printf("%s\n",arr[i]);
+A debugging session is active.
+
+	Inferior 1 [process 30954] will be killed.
+
+Quit anyway? (y or n) 
