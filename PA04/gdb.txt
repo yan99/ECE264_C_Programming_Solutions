@@ -1,0 +1,33 @@
+Breakpoint 1 at 0x400579: file echo-lite.c, line 17.
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA04/echo-lite 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe488) at echo-lite.c:18
+18	  return EXIT_SUCCESS;
+$1 = 1
+19	}
+__libc_start_main (main=0x400514 <main>, argc=1, ubp_av=0x7fffffffe488, 
+    init=<value optimized out>, fini=<value optimized out>, 
+    rtld_fini=<value optimized out>, stack_end=0x7fffffffe478)
+    at libc-start.c:258
+258	  exit (result);
+Breakpoint 2 at 0x400523: file echo-lite.c, line 3.
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA04/echo-lite 
+
+Breakpoint 2, main (argc=1, argv=0x7fffffffe488) at echo-lite.c:6
+6	  if(argc > 1)
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/yan99/ECE264/solutions/264solution/PA04/echo-lite 
+
+Breakpoint 2, main (argc=1, argv=0x7fffffffe488) at echo-lite.c:6
+6	  if(argc > 1)
+$2 = 1
+16	      printf("\n");
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe488) at echo-lite.c:18
+18	  return EXIT_SUCCESS;
+Continuing.
+
+Program exited normally.
