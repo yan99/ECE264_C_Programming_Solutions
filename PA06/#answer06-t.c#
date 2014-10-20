@@ -1,0 +1,41 @@
+nclude "answer06.h"
+#include <stdio.h>
+void print_path(int deltaX, int deltaY, int step)
+{
+  if(deltaX == 1)
+    {
+      printf("E %d\n", step);
+    }
+  if(deltaX == -1)
+    {
+      printf("W %d\n", step);
+    }
+  if(deltaY == 1)
+    {
+      printf("S %d\n", step);
+    }
+  if(deltaY == -1)
+    {
+      printf("N %d\n", step);
+    }
+void recurr(char * * maze, int w, int h, int x, int y, int deltax, int deltay)
+{
+  int num_step = 0;
+  while(maze[x][y] != WALL)
+{
+  x += deltax;
+  y += deltay;
+  maze[y][x] = TRACK;
+  int east = (maze[y][x + 1] == SPACE);
+  int west = (maze[y][x - 1] == SPACE);
+  int north = (maze[y - 1][x] == SPACE);
+  int south = (maze[y + 1][x] == SPACE);
+  if(east + west + north + south == 0)
+  {
+    print_path(deltax, deltay, STEPS);
+    print_path(-deltax, -deltay, STEPS);
+    return;
+  }
+  return
+}
+}

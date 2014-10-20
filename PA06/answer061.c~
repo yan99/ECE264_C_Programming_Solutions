@@ -1,0 +1,108 @@
+#include "answer06.h"
+#include <stdio.h>
+/* #define SPACE ' ' */
+/* #define WALL 'X' */
+/* #define TRACK '.' */
+#define STEPS 1
+void print_path(int deltaX, int deltaY, int step)
+{
+  if(deltaX == 1)
+    {
+      printf("E %d\n", step);
+    }
+  if(deltaX == -1)
+    {
+      printf("W %d\n", step);
+    }
+  if(deltaY == 1)
+    {
+      printf("S %d\n", step);
+    }
+  if(deltaY == -1)
+    {
+      printf("N %d\n", step);
+    }
+}
+void recurr(char * * maze, int w, int h, int x, int y, int deltax, int deltay)
+{
+  x += deltax;
+  y += deltay;
+  if(x >= 0 || x < w || y >= 0 || y < h)
+    {
+    maze[y][x] = TRACK;
+    print_path(deltax, deltay, STEPS);
+    int i;
+    for(i=0;i<h;i++)
+      {
+	printf("%s\n", maze[i]);
+      }
+    printf("\n");
+    int east = (maze[y][x + 1] == SPACE);
+    int west = (maze[y][x - 1] == SPACE);
+    int north = (maze[y - 1][x] == SPACE);
+    int south = (maze[y + 1][x] == SPACE);
+    if(east + west + north + south == 0)
+      {
+	maze[y][x] = WALL;
+        for(i=0;i<h;i++)
+      	  {
+      	    printf("%s\n", maze[i]);
+      	  }
+	printf("\n");
+	int east_track = (maze[y][x + 1] == TRACK);
+	int west_track = (maze[y][x - 1] == TRACK);
+	int north_track = (maze[y - 1][x] == TRACK);
+	int south_track = (maze[y + 1][x] == TRACK);
+	if(east_track)
+	  {
+	    recurr(maze, w, h, x, y, 1, 0);
+	  }
+	if(west_track)
+	  {
+	    recurr(maze, w, h, x, y, -1, 0);
+	  }
+	if(north_track)
+	  {
+	    recurr(maze, w, h, x, y, 0, -1);
+	  }
+	if(south_track)
+	  {
+	    recurr(maze, w, h, x, y, 0, 1);
+	  }
+      }
+    else if(east + west + north + south >= 1)
+      {
+	if(east)
+	  {
+	    recurr(maze, w, h, x, y, 1, 0);
+	  }
+	if(west)
+	  {
+	    recurr(maze, w, h, x, y, -1, 0);
+	  }
+	if(north)
+	  {
+	    recurr(maze, w, h, x, y, 0, -1);
+	  }
+	if(south)
+	  {
+	    recurr(maze, w, h, x, y, 0, 1);
+	  }
+      }
+    }
+  else
+    {
+      return;
+    }
+}
+  //  print_path(-deltaX, -deltaY, step_count);
+void print_directions(char * * maze, int w, int h)
+{
+  int start = 0;
+  while(maze[0][start] == WALL)
+    {
+      start++;
+    }
+  maze[0][start] = TRACK;
+  recurr(maze, w, h, start, 0, 0, 1);
+}

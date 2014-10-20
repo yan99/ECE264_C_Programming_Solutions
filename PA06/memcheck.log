@@ -1,0 +1,81 @@
+==29031== Memcheck, a memory error detector
+==29031== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==29031== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==29031== Command: ./a.out
+==29031== Parent PID: 23978
+==29031== 
+--29031-- 
+--29031-- Valgrind options:
+--29031--    --tool=memcheck
+--29031--    --leak-check=full
+--29031--    --verbose
+--29031--    --log-file=memcheck.log
+--29031-- Contents of /proc/version:
+--29031--   Linux version 2.6.32-504.el6.x86_64 (mockbuild@x86-023.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Tue Sep 16 01:56:35 EDT 2014
+--29031-- Arch and hwcaps: AMD64, amd64-sse3-cx16-avx
+--29031-- Page sizes: currently 4096, max supported 4096
+--29031-- Valgrind library directory: /usr/lib64/valgrind
+--29031-- Reading syms from /home/shay/a/yan99/ECE264/solutions/264solution/PA06/a.out
+--29031-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--29031--    object doesn't have a dynamic symbol table
+--29031-- Reading syms from /lib64/ld-2.12.so
+--29031-- Scheduler: using generic scheduler lock implementation.
+--29031-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==29031== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-29031-by-yan99-on-ee207lnx04.ecn.purdue.edu
+==29031== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-29031-by-yan99-on-ee207lnx04.ecn.purdue.edu
+==29031== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-29031-by-yan99-on-ee207lnx04.ecn.purdue.edu
+==29031== 
+==29031== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==29031== don't want to do, unless you know exactly what you're doing,
+==29031== or are doing some strange experiment):
+==29031==   /usr/lib64/valgrind/../../bin/vgdb --pid=29031 ...command...
+==29031== 
+==29031== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==29031==   /path/to/gdb ./a.out
+==29031== and then give GDB the following command
+==29031==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=29031
+==29031== --pid is optional if only one valgrind process is running
+==29031== 
+--29031-- REDIR: 0x37b9a17610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--29031-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--29031-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--29031-- REDIR: 0x37b9a17480 (index) redirected to 0x4a07c30 (index)
+--29031-- REDIR: 0x37b9a17500 (strcmp) redirected to 0x4a08570 (strcmp)
+--29031-- Reading syms from /lib64/libc-2.12.so
+--29031-- REDIR: 0x37b9e84cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--29031-- REDIR: 0x37b9e86f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--29031-- REDIR: 0x37b9e82c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--29031-- REDIR: 0x37b9e7a640 (malloc) redirected to 0x4a069ac (malloc)
+==29031== 
+==29031== Process terminating with default action of signal 2 (SIGINT)
+==29031==    at 0x37B9EDB5A0: __read_nocancel (in /lib64/libc-2.12.so)
+==29031==    by 0x37B9E71CE7: _IO_file_underflow@@GLIBC_2.2.5 (in /lib64/libc-2.12.so)
+==29031==    by 0x37B9E737ED: _IO_default_uflow (in /lib64/libc-2.12.so)
+==29031==    by 0x37B9E67EC9: _IO_getline_info (in /lib64/libc-2.12.so)
+==29031==    by 0x37B9E66D28: fgets (in /lib64/libc-2.12.so)
+==29031==    by 0x400F2E: read_and_alloc_maze (in /home/shay/a/yan99/ECE264/solutions/264solution/PA06/a.out)
+==29031==    by 0x400DCE: main (in /home/shay/a/yan99/ECE264/solutions/264solution/PA06/a.out)
+--29031-- REDIR: 0x37b9e7b520 (free) redirected to 0x4a063a9 (free)
+==29031== 
+==29031== HEAP SUMMARY:
+==29031==     in use at exit: 102 bytes in 1 blocks
+==29031==   total heap usage: 1 allocs, 0 frees, 102 bytes allocated
+==29031== 
+==29031== Searching for pointers to 1 not-freed blocks
+==29031== Checked 69,376 bytes
+==29031== 
+==29031== LEAK SUMMARY:
+==29031==    definitely lost: 0 bytes in 0 blocks
+==29031==    indirectly lost: 0 bytes in 0 blocks
+==29031==      possibly lost: 0 bytes in 0 blocks
+==29031==    still reachable: 102 bytes in 1 blocks
+==29031==         suppressed: 0 bytes in 0 blocks
+==29031== Reachable blocks (those to which a pointer was found) are not shown.
+==29031== To see them, rerun with: --leak-check=full --show-reachable=yes
+==29031== 
+==29031== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--29031-- 
+--29031-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--29031-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==29031== 
+==29031== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
