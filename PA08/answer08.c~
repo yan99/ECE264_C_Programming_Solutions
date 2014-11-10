@@ -1,0 +1,111 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <libgen.h>
+#include <string.h>
+#include "answer08.h"
+
+List * List_createNode(const char * str)
+{
+  List * new_list = malloc(sizeof(List));
+  if(new_list == NULL)
+  {
+    return NULL;
+  }
+  new_list -> str = strdup(str);
+  new_list -> next = NULL;
+  return new_list;
+}
+
+void List_destroy(List * list)
+{
+  if(list == NULL)
+  {
+    return;
+  }
+  while(list != NULL)
+  {
+    List * str = list -> next;
+    free(list);
+    list = str;
+  }
+}
+
+int List_length(List * list)
+{
+  int len = 0;
+  List * str_next = NULL;
+  while(list != NULL)
+  {
+    len++;
+    str_next = (list -> next);
+    list = str_next;
+  }
+  return len;
+}
+
+void move_nextPtr(List ** resultNext, List ** small)
+{
+  List * temp = * small;
+  * small = temp -> next;
+  temp -> next = * resultNext;
+  * resultNext = temp;
+}
+
+List * List_merge(List * lhs, List * rhs, int (*compar)(const char *, const char*))
+{
+  List * result = NULL;
+  while(1)
+    {
+      if(lhs == NULL && rhs == NULL)
+	{
+	  result -> next = NULL;
+	  break;
+	}
+      else if(lhs == NULL && rhs != NULL)
+	{
+	  result -> next = rhs;
+	  break;
+	}
+      else if(lhs != NULL && rhs == NULL)
+	{
+	  result -> next = lhs;
+	  break;
+	}
+      else
+	{
+	  if(compar <= 0)
+	    {
+	      move_nextPtr(&(result -> next), &lhs);
+	    }
+	  else
+	    {
+	      move_nextPtr(&(result -> next), &rhs);
+	    }
+	}
+          result = result -> next;
+    }
+  return result;
+}
+
+List * List_sort(List * list, int (*compar)(const char *, const char *))
+{
+  if(List_length(list) == 0 || List_length(list) == 1)
+    {
+      return list;
+    }
+  else
+    {
+      int lLen = (List_length(list)) / 2;
+      int i;
+      List * a = list;
+      for(i = 0; i < lLen; i++)
+	{
+	  list = list -> next;
+	}
+      List * b = list;
+      a = List_sort(a, compar);
+      b = List_sort(b, compar);
+      list = List_merge(a, b, compar);
+      return list;
+    }
+}
